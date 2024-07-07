@@ -1,7 +1,14 @@
 const express = require('express');
+const conectarDB = require('./config/db');
+
+// Conectar a la base de datos
+conectarDB();
 
 // Crear una instancia de Express
 const app = express();
+
+// Middleware para analizar el cuerpo de las solicitudes
+app.use(express.json());
 
 // Definir una ruta de prueba
 app.get('/', (req, res) => {
